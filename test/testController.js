@@ -1,4 +1,4 @@
-
+/*
 'use strict'
 
 //Import the dependencies for testing
@@ -15,27 +15,14 @@ var tc = new TestController();
 //Configure chai
 chai.should();
 
-async function connectDB(){
-    await db.connect('mongodb://localhost:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
-    console.log("Connected to Database");
-    }).catch((err) => {
-        console.log("Not Connected to Database . ERROR! ", err);
-    });
-}
-
 //Unit Testing
 describe('Tests for Test Controller ', () => {
 
-    // before( async()=>{
-    //     await connectDB();
-    //     console.log("Before hook function");
-    // });
-
-    before(function () {
+    before(function (done) {
         app.on("appStarted", function(){
             done();
         });
-    });
+    });  
       after(()=>{
         console.log("After hook function");
       });
@@ -89,4 +76,4 @@ describe('Tests for Test Controller ', () => {
        });
    });
 });
-
+*/

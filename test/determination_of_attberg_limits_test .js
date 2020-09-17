@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
 //const request = require('supertest'); // for making http requests
 
-const app = require('../server');
+//const app = require('../server');
 
 var db               = require('mongoose');
 
@@ -18,16 +18,11 @@ async function connectDB(){
 
 //checking for functions present in Atterberg Controller
 describe("Checking Atterberg controller functions",function(){
-//   before( async()=>{
-//     await connectDB();
-//     console.log("Before hook function");
-// });
-
-before(function () {
-  app.on("appStarted", function(){
-      done();
-  });
+  before( async()=>{
+    await connectDB();
+    console.log("Before hook function");
 });
+
   after(()=>{
     console.log("After hook function");
   });
