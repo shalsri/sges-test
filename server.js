@@ -23,7 +23,7 @@ var specific_gravity = require('./routes/determination_of_specific_gravity');
 
 var func1   = require('./config/testInfoTable').func1;
 
-db.connect('mongodb://localhost:27017/sarathyGeoTechTest', { useNewUrlParser: true }).then(() => {
+db.connect('mongodb://localhost:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
     console.log("Connected to Database");
     }).catch((err) => {
         console.log("Not Connected to Database ERROR! ", err);
@@ -35,7 +35,7 @@ func1();
 
 SERVER.get('/', function (req, res) {
  
-    res.send('hello world');
+    res.send('hello jenkins');
    
 });
 
