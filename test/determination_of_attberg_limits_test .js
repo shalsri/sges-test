@@ -9,7 +9,7 @@ const determinationOfAttbergLimitsController = require('../core/geoTests/soil/de
 var dac = new determinationOfAttbergLimitsController();
 
 async function connectDB(){
-    await db.connect('mongodb://localhost:27017/sarathyGeoTechTest', { useNewUrlParser: true }).then(() => {
+    await db.connect('mongodb://localhost:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
     console.log("Connected to Database");
     }).catch((err) => {
         console.log("Not Connected to Database . ERROR! ", err);
