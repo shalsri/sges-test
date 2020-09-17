@@ -1,3 +1,4 @@
+/*
 'use strict'
 
 //Import the dependencies for testing
@@ -65,3 +66,5 @@ describe('Tests for Test Controller ', () => {
        });
    });
 });
+
+*/
