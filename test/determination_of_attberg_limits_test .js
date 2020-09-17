@@ -25,7 +25,7 @@ describe("Checking Atterberg controller functions",function(){
 
 before(function () {
   app.on("appStarted", function(){
-      // done();
+      done();
   });
 });
   after(()=>{

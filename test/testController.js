@@ -33,7 +33,7 @@ describe('Tests for Test Controller ', () => {
 
     before(function () {
         app.on("appStarted", function(){
-            // done();
+            done();
         });
     });
       after(()=>{
