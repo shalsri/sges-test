@@ -14,16 +14,32 @@ var tc = new TestController();
 
 //Configure chai
 chai.should();
-before(function() {        
-    return new Promise((resolve,reject) => {
-        app.on("appStarted", function(){
-            return resolve();
-        }); 
+
+async function connectDB(){
+    await db.connect('mongodb://localhost:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
+    console.log("Connected to Database");
+    }).catch((err) => {
+        console.log("Not Connected to Database . ERROR! ", err);
     });
-  });
+}
+
 //Unit Testing
 describe('Tests for Test Controller ', () => {
-   
+
+    // before( async()=>{
+    //     await connectDB();
+    //     console.log("Before hook function");
+    // });
+
+    before(function () {
+        app.on("appStarted", function(){
+            // done();
+        });
+    });
+      after(()=>{
+        console.log("After hook function");
+      });
+    
     describe('getAllTests in Test COntroller', () => {
         //Simple Get All Test
         it("Should get all the Tests", (done) => {

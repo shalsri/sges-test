@@ -3,27 +3,18 @@ var assert = require('chai').assert;
 
 const app = require('../server');
 
-var db = require('mongoose');
+var db               = require('mongoose');
 
 const determinationOfAttbergLimitsController = require('../core/geoTests/soil/determination_of_atterberg_limits_controller');
 var dac = new determinationOfAttbergLimitsController();
 
-// async function connectDB(){
-//     await db.connect('mongodb://localhost:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
-//     console.log("Connected to Database");
-//     }).catch((err) => {
-//         console.log("Not Connected to Database . ERROR! ", err);
-//     });
-// }
-
-before(function() {        
-  return new Promise((resolve,reject) => {
-      app.on("appStarted", function(){
-          return resolve();
-      }); 
-  });
-});
-
+async function connectDB(){
+    await db.connect('mongodb://localhost:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
+    console.log("Connected to Database");
+    }).catch((err) => {
+        console.log("Not Connected to Database . ERROR! ", err);
+    });
+}
 
 //checking for functions present in Atterberg Controller
 describe("Checking Atterberg controller functions",function(){
@@ -32,6 +23,11 @@ describe("Checking Atterberg controller functions",function(){
 //     console.log("Before hook function");
 // });
 
+before(function () {
+  app.on("appStarted", function(){
+      // done();
+  });
+});
   after(()=>{
     console.log("After hook function");
   });
