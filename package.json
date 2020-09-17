@@ -4,7 +4,7 @@
   "description": "Sges Lab App",
   "main": "index.js",
   "scripts": {
-    "test": " nyc mocha ./test/tests.js --exit"
+    "test": " nyc mocha ./test/tests.js --exit, timeout 10000"
   },
   "repository": {
     "type": "git",
