@@ -1,7 +1,6 @@
 'use strict'
 
 const Determination_of_atterberg_limits = require('../../schemas/geoTests/soil/determination_of_atterberg_limits_sch');
-
 //using the atterberg limits result schema model
 const Atterberg_Result = require('../../schemas/geoTests/results/atterberg_limits_result_schema');
 
