@@ -4,7 +4,7 @@ var SERVER = require('../server');
  
  
  
-describe('get /', function() {
+describe('get /testroute', function() {
  
   it('respond with hello world', function(done) {
  
