@@ -2,4 +2,4 @@
  
  
  
-./node_modules/.bin/mocha ./test/determination_of_attberg_limits_test.js
+./node_modules/.bin/mocha ./test/tests.js
