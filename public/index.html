@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>   
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="./css/login.css">
+	<script src="js/baseurl.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#loginFormSubmit').click(function(e){
+
+			var login = {
+							"email":$('#loginEmail').val(),
+							"password": $('#loginPassword').val()
+						}
+			// alert(JSON.stringify(login))
+
+			$.ajax({
+				url: baseurl + '/login',
+				type: 'POST',
+				data: login,
+				success:function(data){
+					// Whatever you want to do after the form is successfully submitted
+					console.log(JSON.stringify(data))
+					if(data.success == false){
+						alert(data.message)
+					}else{
+						if(data.role[0] != "labEngineer"){
+							alert("Invalid Login")
+							return
+						}
+						location.href = "sampleList.html"
+					}
+				}
+			});
+		});
+	});
+	
+    </script>
+</head>
+<body>
+<div class="container">
+	<div class="d-flex h-100">
+		<div class="card">
+				<br>
+			<div class="card-header">
+				<img src="./Images/512_512resolutionImg.png" style="float:left;border-radius: 10px" width="50" height="50">
+				<h1 style="color:white;font-family: 'Bree Serif', serif;text-align: center">Sign in</h1>
+			</div><br>
+			<div class="card-body">
+				<form id="loginForm">
+					<div class="input-group form-group">
+						<div class="input-group-prepend" >
+							<span class="input-group-text" style="background:#9fb8cf"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="email" id="loginEmail" class="form-control" placeholder="Username">
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="background:#9fb8cf">
+								<i class="fas fa-key"></i>
+							</span>
+						</div>
+						<input type="password" id="loginPassword" class="form-control" placeholder="Password">
+					</div><br>
+					<!-- <div class="row align-items-center remember">
+						<input type="checkbox">Remember Me
+					</div> -->
+					<div class="form-group" style="text-align:center">
+						<input type="button" id="loginFormSubmit" value="Login" class="btn pull-center login_btn">
+                        <!-- <a href="dashboard.html" class="btn pull-center login_btn" >Login</a> -->
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

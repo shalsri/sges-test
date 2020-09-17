@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Samples Logging</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+    <link src="css/dashboard.css"></link>
+    <script src="js/baseurl.js"></script>
+    <script src="js/sampleDetails.js"></script>
+    <script src="js/Components/dateConversions.js"></script>
+</head>
+<body>
+    <h3 id="sarathyHome" style="background: #2980b9;color:white;margin: 0;padding: 10px">Sarathy Lab</h3>
+    <h4 style="background: #75b1da;color:white;margin: 0;padding: 10px">Samples Detail </h4>
+    <br>
+    
+    <div class="container">
+         <form action="/samples/initSample" method="post">
+             <div class="preview text-center">
+                <i class="fas fa-camera" style="font-size:larger"></i>
+                <div class="browse-button">
+                    <img id="sampleImage" onerror="this.style.display='none'" width="200" height="100" style="border:none" />
+                    <input class="browse-input" type="file" required accept="image/*" id="UploadedFile" style="display:none"/>
+                 </div>
+                 <span class="Error"></span>
+             </div>
+             <div class="row">
+                    <!-- <input class="btn btn-primary btn-block" id="editForm" value="Edit form" style="float:right;padding: 15px"/> -->
+             </div>
+             <div class="row">
+                <div class="col-lg-6 form-group">
+                    <label>Sample Id :</label>
+                    <input class="form-control" type="text" id="sampleId" name="sampleId" required placeholder="Enter Your Sample Id" disabled />
+                    <span class="Error"></span>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label>Sample Type :</label>
+                    <!-- <input class="form-control" type="text" id="sampleType" name="sampleType" required placeholder="Enter Your Sample Type" disabled /> -->
+                    <select name="sampleType" class="form-control" id="sampleType" disabled>
+                        <option value="siltyClay">Silty clay</option>
+                        <option value="sndayClay">Sandy clay</option>
+                        <option value="clayeySand">Clayey sand</option>
+                        <option value="siltySand">Silty sand</option>
+                        <option value="sandySilt">Sandy silt</option>
+                        <option value="clayeySilt">Clayey silt</option>
+                        <option value="gravels">Gravels</option>
+                        <option value="weatheredRock">Weathered rock</option>
+                        <option value="hardRock">Hard rock</option>
+                        <option value="none">None</option>
+                        <option value="noSamples">No samples</option>
+                    </select>
+                    <span class="Error"></span>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label>Sample Weight :</label>
+                    <input class="form-control" type="text" id="sampleWeight" name="sampleWeight" required placeholder="Enter Your Sample Weight" disabled/>
+                    <span class="Error"></span>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label>Sample Status :</label>
+                    <!-- <input class="form-control" type="text" id="sampleStatus" name="sampleStatus" required placeholder="Enter Your Sample Status" disabled/> -->
+                    <select name="sampleStatus" class="form-control" id="sampleStatus" disabled>
+                        <option value="Created">Created</option>
+                        <option value="InProgress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                    <span class="Error"></span>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label>Date Of Sample Arrival :</label>
+                    <input class="form-control" type="date" id="dateOfSampleArrival" name="dateOfSampleArrival" required placeholder="Enter Your Sample Arrival" disabled/>
+                    <span class="Error"></span>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <label>Date Of Sample Logging :</label>
+                    <input class="form-control" type="date" id="dateOfSampleLogging" name="dateOfSampleLogging" required placeholder="Enter Your Sample Logging" disabled/>
+                    <span class="Error"></span>
+                </div>
+                <div class="col-lg-12 form-group">
+                    <label>Observations :</label>
+                    <input class="form-control" type="text" id="sampleObservations" name="sampleObservations" disabled/>
+                    <span class="Error"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <input class="btn btn-primary btn-block" id="editForm" value="Edit form"/>
+                </div>
+                <div class="col-lg-4 form-group">
+                    <input class="btn btn-primary btn-block" type="button" id="editFormSubmit" value="Submit" style="display:none"/>
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+         </form>
+     </div>
+
+</body>
+</html>

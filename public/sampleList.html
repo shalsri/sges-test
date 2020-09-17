@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Samples Logging</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+    <link src="css/dashboard.css"></link>
+    <script src="js/baseurl.js"></script>
+    <script src="js/sampleList.js"></script>
+    <style>
+      #addSamplesScreen {
+          border-radius: 50%;
+          position:absolute;
+          bottom:5px;
+          right:5px;
+          margin:2%;
+        }
+        .button {
+        background-color: #007CC3;
+        border: none;
+        color: white;
+        padding: 5px 17px;
+        font-size: 40px;
+        cursor: pointer;
+        border-radius: 50%
+      }
+      </style>
+</head>
+<body>
+    <h3 id="" style="background: #2980b9;color:white;margin: 0;padding: 10px">Sarathy Lab
+      <a id="logout" style="float:right;color: white">Logout</a>
+    </h3>
+    <h4 style="background: #75b1da;color:white;margin: 0;padding: 10px">Samples Logging</h4>
+    <br>
+    
+    <div class="container">
+
+        <!-- Nav pills -->
+        <ul class="nav nav-pills" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#home">Logged</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#menu1">List</a>
+          </li>
+        </ul>
+      
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="home" class="container tab-pane active"><br>
+            <table class="card-table table">
+              <thead>
+                <tr>
+                  <th scope="col">Sample Id</th>
+                  <th scope="col">Type of Sample</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody id="listOfSamples">
+              </tbody>
+            </table>
+          </div>
+          <div id="menu1" class="container tab-pane fade"><br>
+            
+          </div>
+        </div>
+      </div>
+      <button class="btn button5 button" id="addSamplesScreen"><i class="fa fa-plus"></i></button>
+
+  </body>
+</html>
