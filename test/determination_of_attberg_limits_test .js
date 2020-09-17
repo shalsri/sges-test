@@ -16,12 +16,6 @@ var dac = new determinationOfAttbergLimitsController();
 //     });
 // }
 
-//checking for functions present in Atterberg Controller
-describe("Checking Atterberg controller functions",function(){
-//   before( async()=>{
-//     await connectDB();
-//     console.log("Before hook function");
-// });
 before(function() {        
   return new Promise((resolve,reject) => {
       app.on("appStarted", function(){
@@ -29,6 +23,14 @@ before(function() {
       }); 
   });
 });
+
+
+//checking for functions present in Atterberg Controller
+describe("Checking Atterberg controller functions",function(){
+//   before( async()=>{
+//     await connectDB();
+//     console.log("Before hook function");
+// });
 
   after(()=>{
     console.log("After hook function");

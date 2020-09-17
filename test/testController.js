@@ -14,16 +14,16 @@ var tc = new TestController();
 
 //Configure chai
 chai.should();
-
+before(function() {        
+    return new Promise((resolve,reject) => {
+        app.on("appStarted", function(){
+            return resolve();
+        }); 
+    });
+  });
 //Unit Testing
 describe('Tests for Test Controller ', () => {
-    before(function() {        
-        return new Promise((resolve,reject) => {
-            app.on("appStarted", function(){
-                return resolve();
-            }); 
-        });
-      });
+   
     describe('getAllTests in Test COntroller', () => {
         //Simple Get All Test
         it("Should get all the Tests", (done) => {
