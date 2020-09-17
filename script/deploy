@@ -1,0 +1,15 @@
+#!/bin/sh 
+ 
+ssh root@159.65.159.4 <<EOF
+ 
+  cd ~/sges-test
+ 
+  git pull
+ 
+  npm install --production
+ 
+  pm2 restart all
+ 
+  exit
+ 
+EOF
