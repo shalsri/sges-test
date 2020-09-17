@@ -18,16 +18,16 @@ async function connectDB(){
 
 //checking for functions present in Atterberg Controller
 describe("Checking Atterberg controller functions",function(){
-//   before( async()=>{
-//     await connectDB();
-//     console.log("Before hook function");
-// });
-
-before(function () {
-  app.on("appStarted", function(){
-      // done();
-  });
+  before( async()=>{
+    await connectDB();
+    console.log("Before hook function");
 });
+
+// before(function () {
+//   app.on("appStarted", function(){
+//       // done();
+//   });
+// });
   after(()=>{
     console.log("After hook function");
   });
