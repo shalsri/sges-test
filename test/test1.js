@@ -4,11 +4,11 @@ var SERVER = require('../server');
  
  
  
-describe('get /testroute', function() {
+describe('GET /testroute', function() {
  
-  it('respond with hello world', function(done) {
+  it('hello jenkins AGAIN', function(done) {
  
-    request(SERVER).get('/').expect('hello jenkins AGAIN', done);
+    request(SERVER).get('/testroute').expect('hello jenkins AGAIN', done);
  
   });
  

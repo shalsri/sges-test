@@ -5,7 +5,7 @@ var assert = require('chai').assert;
 
 var db               = require('mongoose');
 
-const determinationOfAttbergLimitsController = require('../core/soil/determination_of_atterberg_limits_controller');
+const determinationOfAttbergLimitsController = require('../core/geoTests/soil/determination_of_atterberg_limits_controller');
 var dac = new determinationOfAttbergLimitsController();
 
 async function connectDB(){

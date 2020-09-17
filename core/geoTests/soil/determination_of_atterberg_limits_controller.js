@@ -9,7 +9,8 @@ var determinationofatterberglimitsDB = new DeterminationOfAtterbergLimitsDB();
 var DeterminationOfAtterbergLimitsResult = require ('../../../db/models/geoTests/results/determination_of_atterberg_resultsDB');
 var determinationofatterberglimitsresult = new DeterminationOfAtterbergLimitsResult ();
 
-var moisture_content = require('../../common/generic/moisture_content_func');
+var moisture_content = require('../../../common/generic/moisture_content_func');
+
 
 // async function for updating values of a particular test
 async function pUpdateTestEntry(geoTestId,method_used,history_of_soil_sample,period_of_soaking_soil_sample_before_testing,trialSelected,
