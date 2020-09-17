@@ -8,7 +8,7 @@ var expect = chai.expect;
 
 const SERVER = require('../server');
 
-var TestController = require('../core/common/testController');
+var TestController = require('../core/geoTests/common/testController');
 var tc = new TestController();
 
 //Configure chai
