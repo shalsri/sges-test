@@ -25,6 +25,7 @@ var func1   = require('./config/testInfoTable').func1;
 
 db.connect('mongodb://127.0.0.1:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
     console.log("Connected to Database");
+    SERVER.emit("ready");
     }).catch((err) => {
         console.log("Not Connected to Database ERROR! ", err);
     });
@@ -68,7 +69,10 @@ SERVER.use('/forgotPassword', fPwd);
 
 require('./routes/usersPassport')(SERVER, passport);
 
-SERVER.listen(port, () => console.log(`app listening on port ${port}!`));
+SERVER.on('ready', function(){
 
+    SERVER.listen(port, () => console.log(`app listening on port ${port}!`));
+    SERVER.emit("appStarted");
+})
 
 module.exports = SERVER;

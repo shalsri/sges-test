@@ -1,26 +1,33 @@
 var assert = require('chai').assert;
 //const request = require('supertest'); // for making http requests
 
-//const app = require('../server');
+const app = require('../server');
 
-var db               = require('mongoose');
+var db = require('mongoose');
 
 const determinationOfAttbergLimitsController = require('../core/geoTests/soil/determination_of_atterberg_limits_controller');
 var dac = new determinationOfAttbergLimitsController();
 
-async function connectDB(){
-    await db.connect('mongodb://localhost:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
-    console.log("Connected to Database");
-    }).catch((err) => {
-        console.log("Not Connected to Database . ERROR! ", err);
-    });
-}
+// async function connectDB(){
+//     await db.connect('mongodb://localhost:27017/sarathyGeoTech', { useNewUrlParser: true }).then(() => {
+//     console.log("Connected to Database");
+//     }).catch((err) => {
+//         console.log("Not Connected to Database . ERROR! ", err);
+//     });
+// }
 
 //checking for functions present in Atterberg Controller
 describe("Checking Atterberg controller functions",function(){
-  before( async()=>{
-    await connectDB();
-    console.log("Before hook function");
+//   before( async()=>{
+//     await connectDB();
+//     console.log("Before hook function");
+// });
+before(function() {        
+  return new Promise((resolve,reject) => {
+      app.on("appStarted", function(){
+          return resolve();
+      }); 
+  });
 });
 
   after(()=>{

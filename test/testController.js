@@ -1,4 +1,4 @@
-/*
+
 'use strict'
 
 //Import the dependencies for testing
@@ -7,7 +7,7 @@ const chai = require('chai');
 var assert = require('chai').assert;
 var expect = chai.expect;
 
-const SERVER = require('../server');
+const app = require('../server');
 
 var TestController = require('../core/geoTests/common/testController');
 var tc = new TestController();
@@ -17,6 +17,13 @@ chai.should();
 
 //Unit Testing
 describe('Tests for Test Controller ', () => {
+    before(function() {        
+        return new Promise((resolve,reject) => {
+            app.on("appStarted", function(){
+                return resolve();
+            }); 
+        });
+      });
     describe('getAllTests in Test COntroller', () => {
         //Simple Get All Test
         it("Should get all the Tests", (done) => {
@@ -67,4 +74,3 @@ describe('Tests for Test Controller ', () => {
    });
 });
 
-*/
