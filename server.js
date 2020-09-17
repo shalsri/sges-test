@@ -33,7 +33,7 @@ require('./config/passport')(passport); // pass passport for configuration
 
 func1();
 
-SERVER.get('/', function (req, res) {
+SERVER.get('/testroute', function (req, res) {
  
     res.send('hello jenkins There');
    
